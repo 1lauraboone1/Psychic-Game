@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Happy Hippo Hangman</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+		<link rel="stylesheet" type="text/css" href="hippo-style.css">
+
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>Happy Hippo Hangman</h1>
+			</div>
+		</div>
+
+			<div class="col-sm-4">
+				<img src="hippo7.png" height="200px" width="300px">
+			</div>
+
+
+			<div class="col-sm-2">
+					
+			</div>
+
+			<div class="col-sm-6">
+				<hr>	
+				<p>Happy Hippo wants to see if you are psychic!!</p>
+
+				<p>Will you test your psychic powers? If the answer is "yes," then click any key to get started!
+
+					<br>
+
+					<p>Once you click, the game psychically starts (meaning you won't see anything on the screen), you get 10 guesses - choose carefully!</p>
+
+				<hr>
+
+			</div>
+
+			<script type="text/javascript">
+
+				var words = [
+					"pickles",
+					"pies",
+					"lemons",
+					"turkey",
+					"chips",
+					];
+
+				var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+        				'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+        				't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+        		var wins = 0;
+        		var losses = 0;
+        		var guesses = 0;
+
+				var letter = alphabet[Math.floor(Math.random() * alphabet.length)];
+
+				var answerArray = [];
+				// for (var i = 0; i < word.length; i++) {
+				// 	answerArray.push("_");  
+				// }
+
+				var userGuess;
+
+				document.onkeyup = function(event) {
+					userGuess = event.key;
+
+					if(guesses > 10){
+						losses++;
+						alert ("Sorry, you lost!  Try again!");
+						// New Game Logic usually in a function
+						guesses = 0;
+						letter = alphabet[Math.floor(Math.random() * alphabet.length)];
+						console.log ("letter: "+ letter);
+
+					}
+
+					if(userGuess === letter){
+						wins++;
+						alert ("Great job! Let's play again!");
+						// New Game Logic
+						guesses = 0;
+						letter = alphabet[Math.floor(Math.random() * alphabet.length)];
+						console.log ("letter: "+ letter);
+					}
+
+					else{
+						console.log(userGuess)
+						guesses++;
+					}
+				}
+
+// this is a way to check to make sure code above is working...
+				console.log ("letter: "+ letter);
+				// console.log ("answerArray: "+answerArray);
+
+
+				
+				</script>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+
+		</div>
+	</div>
+
+	 
+
+	<footer style="font-size: 8px">images courtesy of ClipArtLord.com</footer>
+	
+</body>
+</html>
